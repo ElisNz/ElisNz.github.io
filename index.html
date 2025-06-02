@@ -1,15 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
   <head>
     <meta charset="utf-8" />
     <title>Contact form</title>
-    <meta name="description" content="Basic HTML/Tailwind starter" />
+    <meta name="contact form" content="Contact form" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="title">
-      Contact me
-    </div>
+    <main>
+      <div>
+        <div class="header">
+          <h1>Gräddö trädgård</h1>
+          <h2>Kontaktformulär</h2>
+        </div>
+
+        <form class="form">  
+          <label for="name">Namn:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Mail:</label>
+          <input type="email" id="email" name="email" required />
+
+          <div class="checkbox">
+            <label for="klipp">Skötsel</label>
+            <input type="checkbox" id="klipp" name="klipp">
+
+            <label for="anlaggning">Anläggning/plantering</label>
+            <input type="checkbox" id="anlaggning" name="anlaggning">
+
+            <label for="jord">Jord</label>
+            <input type="checkbox" id="jord" name="jord">
+
+            <label for="sand">Sand</label>
+            <input type="checkbox" id="sand" name="sand">           
+          </div>
+
+          <label for="message">Meddelande (valfritt):</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <input type="submit" />
+        </form>
+      </div>
+    </main>
   </body>
 </html>
