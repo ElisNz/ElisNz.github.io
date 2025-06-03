@@ -2,7 +2,7 @@
 <html lang="sv">
   <head>
     <meta charset="utf-8" />
-    <title>Contact form</title>
+    <title>Kontakt</title>
     <meta name="contact form" content="Contact form" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles.css" />
@@ -16,11 +16,11 @@
         </div>
 
         <form class="form">  
-          <label for="name">Namn:</label>
-          <input type="text" id="name" name="name" required />
+          <label for="adress">Adress:</label>
+          <input type="text" id="adress" name="adress" required />
 
-          <label for="email">Mail:</label>
-          <input type="email" id="email" name="email" required />
+          <label for="mail">Mail:</label>
+          <input type="mail" id="mail" name="mail" required />
 
           <div class="checkbox">
             <label for="klipp">Skötsel</label>
@@ -29,19 +29,39 @@
             <label for="anlaggning">Anläggning/plantering</label>
             <input type="checkbox" id="anlaggning" name="anlaggning">
 
-            <label for="jord">Jord</label>
-            <input type="checkbox" id="jord" name="jord">
+            <label for="Beskärning">Beskärning</label>
+            <input type="checkbox" id="Beskärning" name="Beskärning">
 
-            <label for="sand">Sand</label>
-            <input type="checkbox" id="sand" name="sand">           
+            <label for="annat">Annat</label>
+            <input type="checkbox" id="annat" name="annat">           
           </div>
 
           <label for="message">Meddelande (valfritt):</label>
           <textarea id="message" name="message" rows="4" required></textarea>
 
-          <input type="submit" />
+          <input type="submit" value="Skicka" />
         </form>
       </div>
     </main>
   </body>
+  <footer>
+    <p id="stamp"></p>
+  </footer>
+
+  <script>
+    // Get the current date
+    const today = new Date();
+    const options = { year: 'numeric'};
+    const formattedDate = today.toLocaleDateString('sv-SE', options);
+
+    // Set the content of the stamp element
+    document.getElementById('stamp').textContent = `@Gräddö Trädgård ${formattedDate}`;
+    
+    // Handle form submission
+    document.querySelector('.form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+      alert('Formuläret har skickats!'); // Show a confirmation message
+      this.reset(); // Reset the form fields
+    });
+  </script>
 </html>
