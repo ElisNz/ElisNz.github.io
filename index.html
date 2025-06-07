@@ -11,16 +11,16 @@
     <main>
       <div>
         <div class="header">
-          <h1>Gräddö trädgård</h1>
+          <h1>Gräddö Trädgård</h1>
           <h2>Kontaktformulär</h2>
         </div>
 
-        <form class="form">  
+        <form class="form" id="form">  
           <label for="adress">Adress:</label>
           <input type="text" id="adress" name="adress" required />
 
           <label for="mail">Mail:</label>
-          <input type="mail" id="mail" name="mail" required />
+          <input type="email" id="mail" name="mail" required />
 
           <div class="checkbox">
             <label for="klipp">Skötsel</label>
@@ -39,7 +39,7 @@
           <label for="message">Meddelande (valfritt):</label>
           <textarea id="message" name="message" rows="4" required></textarea>
 
-          <input type="submit" value="Skicka" />
+          <input type="submit" value="Skicka" id="send" />
         </form>
       </div>
     </main>
@@ -49,19 +49,17 @@
   </footer>
 
   <script>
-    // Get the current date
     const today = new Date();
     const options = { year: 'numeric'};
     const formattedDate = today.toLocaleDateString('sv-SE', options);
 
-    // Set the content of the stamp element
     document.getElementById('stamp').textContent = `@Gräddö Trädgård ${formattedDate}`;
     
-    // Handle form submission
-    document.querySelector('.form').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent the default form submission
-      alert('Formuläret har skickats!'); // Show a confirmation message
-      this.reset(); // Reset the form fields
+    document.querySelector('#form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      document.getElementById('send').value = 'Skickar...';
+
+      this.reset();
     });
   </script>
 </html>
