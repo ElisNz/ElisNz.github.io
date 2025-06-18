@@ -29,14 +29,14 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Use variables
+      - name: Inject config variables
         env:
           API_MAIL_ENDPOINT: ${{ vars.API_MAIL_ENDPOINT }}
           ADDRESS: ${{ vars.ADDRESS }}
           EMAIL_ADDRESS: ${{ vars.EMAIL_ADDRESS }}
           NAME: ${{ vars.NAME }}
           AUTH: ${{ vars.AUTH }}
-        run: set API_MAIL_ENDPOINT="$API_MAIL_ENDPOINT" set ADDRESS="$ADDRESS"
+        run: echo "window.env = {$API_MAIL_ENDPOINT, $ADDRESS, $EMAIL_ADDRESS, $NAME, $AUTH}" > config.js
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
