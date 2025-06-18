@@ -36,6 +36,7 @@ jobs:
           EMAIL_ADDRESS: ${{ vars.EMAIL_ADDRESS }}
           NAME: ${{ vars.NAME }}
           AUTH: ${{ vars.AUTH }}
+        run: set API_MAIL_ENDPOINT="$API_MAIL_ENDPOINT" set ADDRESS="$ADDRESS"
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
