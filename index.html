@@ -29,18 +29,25 @@
             <label for="anlaggning">Anläggning/plantering</label>
             <input type="checkbox" id="anlaggning" name="anlaggning">
 
-            <label for="Beskärning">Beskärning</label>
-            <input type="checkbox" id="Beskärning" name="Beskärning">
+            <label for="beskarning">Beskärning</label>
+            <input type="checkbox" id="beskarning" name="beskarning">
 
             <label for="annat">Annat</label>
             <input type="checkbox" id="annat" name="annat">           
           </div>
 
           <label for="message">Meddelande (valfritt):</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
+          <textarea id="message" name="message" rows="4"></textarea>
 
           <input type="submit" value="Skicka" id="send" />
         </form>
+
+        <div id="success-message" class="message-prompt">
+          <p>Tack för ditt meddelande! Vi återkommer så snart som möjligt.</p>
+        </div>
+        <div id="error-message" class="message-prompt">
+          <p>Det uppstod ett fel. Försök igen senare.</p>
+        </div>
       </div>
     </main>
   </body>
@@ -48,18 +55,5 @@
     <p id="stamp"></p>
   </footer>
 
-  <script>
-    const today = new Date();
-    const options = { year: 'numeric'};
-    const formattedDate = today.toLocaleDateString('sv-SE', options);
-
-    document.getElementById('stamp').textContent = `@Gräddö Trädgård ${formattedDate}`;
-    
-    document.querySelector('#form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      document.getElementById('send').value = 'Skickar...';
-
-      this.reset();
-    });
-  </script>
+  <script src="script.js"></script>
 </html>

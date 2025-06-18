@@ -31,6 +31,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  border: none;
 
   & label {
     font-size: 1em;
@@ -84,4 +85,14 @@ body {
   text-align: center;
   font-size: 1.4em;
   border-radius: 14px;
+}
+
+.message-prompt {
+  display: none;
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: center;
 }
