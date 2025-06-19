@@ -7,7 +7,6 @@ const send = async() => {
   const form = document.querySelector('#form').elements;
   const checkedItems = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(item => item.name).toString().replace(/,/g, ', ');
 
-  console.log(JSON.stringify({ "subject": "Kundförfrågan", "text": `<div><p>${form.adress.value}</p><p>${form.mail.value}</p>${checkedItems ? `<p>Valda tjänster: ${checkedItems}</p>` : ''}${form.message.value ? `<p>Meddelande: ${form.message.value}</p>` : ''}</div>` }));
   const res = await fetch('https://mail-server-graddo-777025418952.europe-north2.run.app', {
     method: 'POST',
     body: `<div><p>${form.adress.value}</p><p>${form.mail.value}</p>${checkedItems ? `<p>Valda tjänster: ${checkedItems}</p>` : ''}${form.message.value ? `<p>Meddelande: ${form.message.value}</p>` : ''}</div>"`,
@@ -32,10 +31,12 @@ document.querySelector('#form').addEventListener('submit', function(event) {
   send().then(() => {
     event.target.reset();
     document.querySelector('#success-message').style.display = 'block'; 
+    document.querySelector('#error-message').style.display = 'none';
   }).catch((error) => {
     console.error('Error:', error);
     const errorMessage = document.querySelector('#error-message');
     errorMessage.style.display = 'block'; 
     errorMessage.style.color = '#ff0000'; 
+    document.querySelector('#success-message').style.display = 'none';
   }); 
 });
